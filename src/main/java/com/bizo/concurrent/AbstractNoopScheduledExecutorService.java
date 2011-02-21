@@ -10,7 +10,7 @@ import java.util.concurrent.ScheduledFuture;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.TimeoutException;
 
-public class EmptyScheduledExecutorService implements ScheduledExecutorService {
+public abstract class AbstractNoopScheduledExecutorService implements ScheduledExecutorService {
 
   @Override
   public ScheduledFuture<?> schedule(final Runnable command, final long delay, final TimeUnit unit) {
