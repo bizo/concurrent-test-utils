@@ -9,12 +9,18 @@ import java.util.concurrent.TimeoutException;
 import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.atomic.AtomicReference;
 
+/**
+ * A future that can be deterministically manipulated by test code instead of relying on real timing/threading behavior
+ * like futures returned by a ScheduledExecutorService.
+ */
 public class StubScheduledFuture<T> implements ScheduledFuture<T> {
 
   private final CountDownLatch latch = new CountDownLatch(1);
   private final AtomicBoolean canceled = new AtomicBoolean(false);
   private final AtomicBoolean done = new AtomicBoolean(false);
   private final AtomicReference<T> result = new AtomicReference<T>(null);
+
+  // TODO support get throwing an exception via an error(Exception) method
 
   public void done(final T result) {
     if (done.compareAndSet(false, true)) {
