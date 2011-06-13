@@ -22,16 +22,6 @@
 
   <dependencies defaultconfmapping="sources->sources();%->default" defaultconf="default;sources">
     <!-- default (compile, test, runtime) dependencies -->
-    <dependency org="apache" name="commons-lang" rev="2.4"/>
-    <dependency org="google" name="google-collect" rev="1.0"/>
-
-    <!-- uncomment the following lines to use the slf4j logging bridges -->
-    <!--
-      <dependency org="slf4j" name="slf4j" rev="1.5.11" conf="default->api,jdk14"/> 
-      <exclude org="log4j" module="log4j" />
-      <exclude org="apache" module="log4j" /> 
-      <exclude org="apache" module="commons-logging" />
-    -->
 
     <!-- build time only dependencies -->
     <dependency org="findbugs" name="findbugs" rev="1.3.9" conf="buildtime"/>
